@@ -95,20 +95,22 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
 function uniquifyArray(wordsArr) {
-  let arrayUni = [];
+  let arrayUnique = [];
+
   if(wordsArr.length == 0) return null;
-  //for (let i=0, i<wordsArr.length, i++) {
-  //  if (!arrayUni.includes(wordsArr[i])) arrayUni.push(wordsArr[i]);
-  //}
-  //for each
+
+  // for( let i = 0; i < wordsArr.length; i++) {
+  //   if(!arrayUnique.includes(wordsArr[i])) arrayUnique.push(wordsArr[i]);
+  // }
+
   wordsArr.forEach(function(word){
-  if(!arrayUni.includes(wordsArr[i])) arrayUni.push(word);
-  })
-  return arrayUni;
+    if(!arrayUnique.includes(word)) arrayUnique.push(word);
+  });
+  
+  return arrayUnique;
 }
-
-
 
 
 // Iteration #6: Find elements
@@ -134,6 +136,11 @@ const wordsCount = [
 ];
 
 function howManyTimes() { }
+
+
+
+
+
 
 
 
@@ -197,23 +204,4 @@ const matrix = [
   }
 
   return total;
-}
-
-console.log("resultado: ", greatestProduct(matrix));
-// The following is required to make unit tests work.
-/* Environment setup. Do not modify the below code. */
-if (typeof module !== 'undefined') {
-  module.exports = {
-    maxOfTwoNumbers,
-    findLongestWord,
-    sumNumbers,
-    sum,
-    averageNumbers,
-    averageWordLength,
-    avg,
-    uniquifyArray,
-    doesWordExist,
-    howManyTimes,
-    greatestProduct
-  };
 }
