@@ -18,11 +18,10 @@ function findLongestWord(wordsArr) {
     }  return longestWord;
   }
 
-// usando for each:
+//usando forEach:
 //wordsArr.forEach(function(word){
 //if(word.length > longestWord.length)
-//longestWord = word;
-//});
+//longestWord = word; });
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -33,11 +32,10 @@ function sumNumbers(numbersArr) {
   } return total;
 }
 
-// usando for each:
+//usando forEach:
 //numbersArr.forEach(function(number){
 //total = total + number;
-//}) return total;
-//}
+//}); return total; }
 
 // Iteration #3.1 Bonus:
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
@@ -133,13 +131,6 @@ const wordsCount = [
 ];
 
 function howManyTimes() { }
-
-
-
-
-
-
-
 
 // Iteration #8: Bonus
 const matrix = [
