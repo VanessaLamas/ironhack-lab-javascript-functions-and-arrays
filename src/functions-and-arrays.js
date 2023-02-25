@@ -18,7 +18,6 @@ function findLongestWord(wordsArr) {
     }  return longestWord;
   }
 
-
 // usando for each:
 //wordsArr.forEach(function(word){
 //if(word.length > longestWord.length)
@@ -43,12 +42,17 @@ function sumNumbers(numbersArr) {
 // Iteration #3.1 Bonus:
 const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 // should return: 57
-
-
-
-
-
-
+function sum(valuesArr) {
+  let total = 0;
+  valuesArr.forEach(function(value){
+    if(typeof value == "string") total+= value.length;
+    else if(typeof value == "number") total += value;
+    else if(typeof value == "boolean" && value) total += 1;
+    else if (typeof value == "boolean" && !value) total +=0;
+    else throw new Error ("Unsupported data type sir or ma'am");
+})
+  return total;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -67,7 +71,6 @@ function averageNumbers(numbersAvg) {
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
   let countStr = 0;
   let totalStr = 0;
   function averageWordLength(wordsLength) {
@@ -92,8 +95,17 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
-
-function uniquifyArray() {
+function uniquifyArray(wordsArr) {
+  let arrayUni = [];
+  if(wordsArr.length == 0) return null;
+  //for (let i=0, i<wordsArr.length, i++) {
+  //  if (!arrayUni.includes(wordsArr[i])) arrayUni.push(wordsArr[i]);
+  //}
+  //for each
+  wordsArr.forEach(function(word){
+  if(!arrayUni.includes(wordsArr[i])) arrayUni.push(word);
+  })
+  return arrayUni;
 }
 
 
@@ -149,11 +161,45 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() { }
+  function greatestProduct(matrix) {
+    let total = 0;
+    let totalGroup = 1;
+    // el i esta indicando la fila
+    for (let i=0; i<matrix.length; i++) {
+    // hay e indicar recorrido de 4 en 4
+    for (let j=0; j<matrix[i].length-3; j++) {
+    // multiplicar los numeros
+    totalFila = matrix[i][j] * matrix [i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+    // comprobar cual es el mayor de la fila
+    if (totalFilaGroup > total) total = totalGroup;
+   }
+  }
 
+  for(let k = 0; k<matrix.length - 3; k++) {
+    for(let l=0; l<matrix[k].length; l++) {
+      totalGrupo = matrix[k][l] * matrix[k+1][l] * matrix[k+2][l] * matrix[k+3][l];
+      if(totalGrupo > total) total = totalGrupo;
+    }
+  }
 
+  for(let m=0; m<matrix.length - 3; m++) {
+    for(let n=0; n<matrix[m].length - 3; n++) {
+      totalGrupo = matrix[m][n] * matrix[m+1][n+1] * matrix[m+2][n+2] * matrix[m+3][n+3];
+      if(totalGrupo > total) total = totalGrupo;
+    }
+  }
 
+  for(let p=0; p<matrix.length - 3; p++) {
+    for(let q=matrix[p].length-1; q > 3; q--) {
+      totalGrupo = matrix[p][q] * matrix[p+1][q-1] * matrix[p+2][q-2] * matrix[p+3][q-3]; 
+      if(totalGrupo > total) total = totalGrupo;
+    }
+  }
 
+  return total;
+}
+
+console.log("resultado: ", greatestProduct(matrix));
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== 'undefined') {
